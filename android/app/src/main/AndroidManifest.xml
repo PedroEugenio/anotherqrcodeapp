@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.qr_code_app">
+    package="com.example.another_qr_code_app">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="Another QR Code App"

@@ -120,38 +120,50 @@ class FrontButton extends StatelessWidget {
     var _borderRadius = BorderRadius.circular(16.0);
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Material(
-        color: kMainButtonColor,
-        borderRadius: _borderRadius,
-        child: InkWell(
+      child: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black38,
+              offset: Offset(0, 1),
+              blurRadius: 3.0,
+            )
+          ],
           borderRadius: _borderRadius,
-          onTap: buttonAction,
-          splashColor: Colors.black54,
-          child: Container(
-            margin: EdgeInsets.all(28.0),
-            height: 200,
-            width: 200,
-            child: Center(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    child: Icon(
-                      this.icon,
-                      size: 80,
-                    ),
-                  ),
-                  Container(
-                    alignment: Alignment.bottomCenter,
-                    child: Text(
-                      this.title,
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
+        ),
+        child: Material(
+          color: kMainButtonColor,
+          borderRadius: _borderRadius,
+          child: InkWell(
+            borderRadius: _borderRadius,
+            onTap: buttonAction,
+            splashColor: Colors.black54,
+            child: Container(
+              margin: EdgeInsets.all(28.0),
+              height: 200,
+              width: 200,
+              child: Center(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      child: Icon(
+                        this.icon,
+                        size: 80,
                       ),
                     ),
-                  ),
-                ],
+                    Container(
+                      alignment: Alignment.bottomCenter,
+                      child: Text(
+                        this.title,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
