@@ -2,7 +2,7 @@
     package="com.example.qr_code_app">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="QR Code Pro"
+        android:label="Another QR Code App"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

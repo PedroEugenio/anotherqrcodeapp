@@ -21,29 +21,37 @@ class _QrCodeScanState extends State<QrCodeScan> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kBackgroundColorMain,
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        foregroundColor: kMainButtonColor,
+        actions: [
+          IconButton(
+            onPressed: () async {
+              await controller?.toggleFlash();
+              setState(() {});
+            },
+            icon: FutureBuilder(
+              future: controller?.getFlashStatus(),
+              builder: (context, snapshot) {
+                return Icon(
+                    snapshot.data == true ? Icons.flash_on : Icons.flash_off);
+              },
+            ),
+          ),
+          IconButton(
+            onPressed: () async {
+              await controller?.flipCamera();
+              setState(() {});
+            },
+            icon: Icon(Icons.cameraswitch_outlined),
+          ),
+        ],
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+      ),
       body: Stack(
         children: <Widget>[
           _buildQrView(context),
-          Container(
-            child: Positioned(
-              bottom: 1,
-              left: (MediaQuery.of(context).size.width / 2) - 35,
-              child: ElevatedButton(
-                child: Text("MOCK"),
-                onPressed: () {
-                  setState(() {
-                    result = Barcode(
-                        "https://api.flutter.dev/flutter/material/AlertDialog-class.html",
-                        BarcodeFormat.qrcode,
-                        [1, 2, 3]);
-                    /* result = Barcode("AlertDialog-class",
-                                BarcodeFormat.qrcode, [1, 2, 3]); */
-                  });
-                },
-              ),
-            ),
-          ),
           _scanResultView(),
         ],
       ),

@@ -1,8 +1,8 @@
+import 'package:another_qr_code_app/create_qr_code_page.dart';
+import 'package:another_qr_code_app/scan_qr_code_page.dart';
+import 'package:another_qr_code_app/share_qr_code_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:qr_code_app/create_qr_code_page.dart';
-import 'package:qr_code_app/scan_qr_code_page.dart';
-import 'package:qr_code_app/share_qr_code_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'constraints.dart';
